@@ -37,8 +37,9 @@ tuple<int, int> max_value(int alpha, int beta, othelloBoard &board, int turn, in
     if(turn==1){
         other = 2;
     }
-    t2_CD = clock();  
-    timeDiff_CD_21 = ((double) (t2_CD - t1_CD)) / CLOCKS_PER_SEC;
+    t2_CD = std::chrono::system_clock::now();  
+    timeDiff_CD_21_temp = t2_CD - t1_CD;
+    timeDiff_CD_21 = timeDiff_CD_21_temp.count();
 
     if(timeDiff_CD_21 + delta > time_limit){
         time_up = true;
@@ -116,8 +117,9 @@ tuple<int, int> min_value(int alpha, int beta, othelloBoard &board, int turn, in
     vector<int> min_legal_moves_vector;
     int k_two;
     
-    t2_CD = clock();  
-    timeDiff_CD_21 = ((double) (t2_CD - t1_CD)) / CLOCKS_PER_SEC;
+    t2_CD = std::chrono::system_clock::now();  
+    timeDiff_CD_21_temp = t2_CD - t1_CD;
+    timeDiff_CD_21 = timeDiff_CD_21_temp.count();
     
     if(timeDiff_CD_21 + delta > time_limit){
         time_up = true;

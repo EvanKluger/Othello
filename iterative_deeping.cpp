@@ -55,7 +55,8 @@ int iterative_deepaning(int turn, double time_limit, othelloBoard &board){
     //timer();
 	double thirty = 30;
 	delta = time_limit/thirty;
-	t1_CD = clock();
+	t1_CD = std::chrono::system_clock::now();  
+	t2_CD = std::chrono::system_clock::now(); 
 	time_up = false;
 	game_over = false;
 	int result_return;
