@@ -91,12 +91,14 @@ void othelloBoard::print_values(){
               cout << "\033[34;44m" << " " << "\e[0;0m";
               count = 1;
               cout<<"  |"<<endl;
+              cout<<"  |-----||-----||-----||-----||-----||-----||-----||-----|"<<endl;
             }
             else if(data[k].value == 2){
               cout<<"|  ";
               cout << "\033[0;47m" << 0 << "\e[0;0m";
               count = 1;
               cout<<"  |"<<endl;
+              cout<<"  |-----||-----||-----||-----||-----||-----||-----||-----|"<<endl;
             }
         }
         else if(count == 1){
