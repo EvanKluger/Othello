@@ -12,10 +12,23 @@ void human_move(othelloBoard &board, int turn, vector<int> legal_moves_vec){
     if(legal_moves_vec.size() == 0){
       return;
     }
-    cout << "Player " << turn << " pick a move from below by the index of each move" << endl;
+    string color1;
+    string color2;
+    
+    if(turn == 1){
+      color1 = "\033[34;42m";
+      color2 = "\e[0;0m";
+    }
+
+    if(turn==2){
+      color1 = "\033[0;42m";
+      color2 = "\e[0;0m";
+    }
+
+    cout << color1 << "Player " << turn << color2 << " pick a move from below by the index of each move" << endl;
     cin >> move; 
     while(move + 1 > legal_moves_vec.size() || move < 0){
-      cout << "Player " << turn << " pick a move from below by the index of each move" << endl;
+      cout << color1 << "Player " << turn << color2 << " pick a move from below by the index of each move" << endl;
       cin >> move;
     }
     board.make_move(legal_moves_vec[move], turn, turn);

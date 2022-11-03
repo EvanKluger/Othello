@@ -18,9 +18,6 @@ using namespace std;
 //int minutes = 0;
 //int seconds = 0;
 
-
-
-
 /*
 void timer()
 {
@@ -85,9 +82,3 @@ int iterative_deepaning(int turn, double time_limit, othelloBoard &board){
 	
     return result_return;
 }
-
-
-
-
-
-

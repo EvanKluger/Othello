@@ -74,66 +74,72 @@ int othelloBoard::find_position_from_key(int key){
 void othelloBoard::print_values(){
     int count = 1;
     int count_row = 1;
-    cout<<"\e[0;31m" <<" 12345678"<< "\e[0;0m" <<endl;
+    cout<<"\e[0;31m" <<"  |  1  ||  2  ||  3  ||  4  ||  5  ||  6  ||  7  ||  8  |"<< "\e[0;0m" <<endl;
+    cout<<"  |-----||-----||-----||-----||-----||-----||-----||-----|"<<endl;
     for(int k=0; k!= 64; k++){
         if(count == 8){
             if(data[k].value == 0){
-              cout << "\e[0;32m" << 0 << "\e[0;0m" << endl;
+              cout<<"|  ";
+              cout << "\033[32;42m" << 0 << "\e[0;0m";
               count = 1;
+              cout<<"  |"<<endl;
+              cout<<"  |-----||-----||-----||-----||-----||-----||-----||-----|"<<endl;
               
             }
             else if(data[k].value == 1){
-              cout << "\e[0;34m" << 0 << "\e[0;0m" << endl;
+              cout<<"|  ";
+              cout << "\033[34;44m" << " " << "\e[0;0m";
               count = 1;
-              
+              cout<<"  |"<<endl;
             }
             else if(data[k].value == 2){
-              
-              cout << "\e[0;37m" << 0 << "\e[0;0m" << endl;;
+              cout<<"|  ";
+              cout << "\033[0;47m" << 0 << "\e[0;0m";
               count = 1;
-              
+              cout<<"  |"<<endl;
             }
         }
         else if(count == 1){
-        cout << "\e[0;31m" << count_row << "\e[0;0m";
+        cout << "\e[0;31m" << " " << count_row << "\e[0;0m";
         count_row = count_row + 1;
           if(data[k].value == 0){
-              
-              cout << "\e[0;32m" << 0 << "\e[0;0m";
+              cout<<"|  ";
+              cout << "\033[32;42m" << 0 << "\e[0;0m";
               count = count + 1;
-              
+              cout<<"  |";
           }
           else if(data[k].value == 1){
-              
-              cout << "\e[0;34m" << 0 << "\e[0;0m";
+              cout<<"|  ";
+              cout << "\033[34;44m" << " " << "\e[0;0m";
               count = count + 1;
+              cout<<"  |";
               
           }
           else if(data[k].value == 2){
-              
-              cout << "\e[0;37m" << 0 << "\e[0;0m";
+              cout<<"|  ";
+              cout << "\033[0;47m" << 0 << "\e[0;0m";
               count = count + 1;
-              
+              cout<<"  |";
           }
         }
         else{
             if(data[k].value == 0){
-              
-              cout << "\e[0;32m" << 0 << "\e[0;0m";
+              cout<<"|  ";
+              cout << "\033[32;42m" << 0 << "\e[0;0m";
               count = count + 1;
-              
+              cout<<"  |";
             }
             else if(data[k].value == 1){
-              
-              cout << "\e[0;34m" << 0 << "\e[0;0m";
+              cout<<"|  ";
+              cout << "\033[34;44m" << " " << "\e[0;0m";
               count = count + 1;
-              
+              cout<<"  |";
             }
             else if(data[k].value == 2){
-              
-              cout << "\e[0;37m" << 0 << "\e[0;0m";
+              cout<<"|  ";
+              cout << "\033[0;47m" << 0 << "\e[0;0m";
               count = count + 1;
-              
+              cout<<"  |";
             }
         }
     }   
@@ -764,13 +770,6 @@ int othelloBoard::heuristic_eval(int turn){
           }
       }
     }
-
-
-
-
-
-
-
     //-------------------------------------------------------------
     //Evaluation of Points Based on Amount of Legal Moves Available 
     //-------------------------------------------------------------

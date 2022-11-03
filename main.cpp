@@ -84,42 +84,65 @@ void create_board_from_file(string &file, othelloBoard &board){
 */
 
 int main(){
-    char player_1_ans;
-    char player_2_ans;
+    string player_1_ans;
+    string player_2_ans;
     int player_1;
     int player_2;
-    char file_ans;
+    string file_ans;
     int turn = 1;
     string file_name;
     double time_limit;
     vector<int> legal_moves_vector;
 
     othelloBoard board(64);
-
-    cout << "Will player # 1 be a computer? (Y/N):" << endl;
+    cout << "Welcome to the Othello Terminal Game. Here are some basic instructions."<<endl;
+    cout << "The interface gives you the option to have player 1 and player 2 act as Computer or a User."<<endl;
+    cout << "On each turn the interface will print out the legal moves in a order marked by an index number"<<endl;
+    cout << "To select a move on a user's turn, type in the index number of the move your are selcting"<<endl;
+    cout << "Lastly, player 1 will automatically go first as the Blue color. Player 2 will go second as the white color."<<endl;
+    cout << "_______________________"<<endl;
+    cout << "_______________________"<<endl;
+    cout << "_______________________"<<endl;
+    cout << "_______________________"<<endl;
+    cout << "Will player # 1 be a computer? (Yes/No):" << endl;
     cin >> player_1_ans;
 
-    cout << "Will player # 2 be a computer? (Y/N):" << endl;
+    while(player_1_ans != "Yes" && player_1_ans != "No"){
+      cout << "Will player # 1 be a computer? (Yes/No):" << endl;
+      cin >> player_1_ans;
+    }
+
+    cout << "Will player # 2 be a computer? (Yes/No):" << endl;
     cin >> player_2_ans;
 
-    cout << "Do you want to load a game from a file? (Y/N):" << endl;
+    while(player_2_ans != "Yes" && player_2_ans != "No"){
+      cout << "Will player # 2 be a computer? (Yes/No):" << endl;
+      cin >> player_2_ans;
+    }
+
+    cout << "Do you want to load a game from a file? (Yes/No):" << endl;
     cin >> file_ans;
 
-    while(file_ans != 'N' && file_ans != 'Y'){
-      cout << "Do you want to load a game from a file? (Y/N):" << endl;
+    while(file_ans != "No" && file_ans != "Yes"){
+      cout << "Do you want to load a game from a file? (Yes/No):" << endl;
       cin >> file_ans;
     }
 
-    cout << "Enter a time limit?" << endl;
+    cout << "Enter a time limit? (1-60)" << endl;
     cin >> time_limit;
+
+    while(time_limit < 3 && time_limit > 60){
+      cout << "Enter a time limit? (1-60)" << endl;
+      cin >> time_limit;
+    }
 
     //display_board();
     //cout<< "Displaying board 2"<< endl;
-    if (file_ans == 'N'){
+    if (file_ans == "No"){
       create_new_board(board);
     }
 
-    if (file_ans == 'Y'){
+    if (file_ans == "Yes"){
       cout << "What is the file name " << endl;
       cin >> file_name;
       cout << "Who's turn is it (Please type 1 or 2) " << endl;
@@ -127,19 +150,19 @@ int main(){
       create_board_from_file(file_name, board);
     }
     
-    if (player_1_ans == 'Y'){
+    if (player_1_ans == "Yes"){
       player_1 = 2;
     }
     
-    if (player_1_ans == 'N'){
+    if (player_1_ans == "No"){
       player_1 = 1;
     }
     
-    if (player_2_ans == 'Y'){
+    if (player_2_ans == "Yes"){
       player_2 = 2;
     }
     
-    if (player_2_ans == 'N'){
+    if (player_2_ans == "No"){
       player_2 = 1;
     }
 
