@@ -24,6 +24,7 @@ void create_new_board(othelloBoard &board){
   board.change_value(45,1,28);
   board.change_value(54,1,35);
   board.change_value(55,2,36);
+  pieces = 4;
   //board.print_values();
   cout << "------------" << endl;
 }
@@ -32,6 +33,7 @@ void create_board_from_file(string &file, othelloBoard &board){
   int count_pos = 0;
   int count_key = 11;
   int filled_key = 0;
+  int num;
   ifstream ifs(file);
   ofstream *outFile;
   string line;
@@ -45,21 +47,23 @@ void create_board_from_file(string &file, othelloBoard &board){
                 break;
               }
               char chDigit = line[i];  
-              int num = chDigit - 48;
-              board.change_value(count_key, num, count_pos);
-              count_pos = count_pos + 1;
+              num = chDigit - 48;
+              
+              
               filled_key = 0;
-
               while(filled_key == 0){
-                if (count_key % 10 != 0 && count_key % 10 != 9){
-                    count_key = count_key + 1;
-                    filled_key = 1;
-                }
+                
+                if(count_key % 10 != 0 && count_key % 10 != 9){
+                  filled_key = 1;
+                  board.change_value(count_key, num, count_pos);
+                  count_pos = count_pos + 1;
+                  count_key = count_key + 1;
+                  }
                 else{
-                count_key = count_key + 1;
-                }
+                  count_key = count_key + 1;
+                  }
+              }
             }
-          }
         }
     ifs.close();
 }

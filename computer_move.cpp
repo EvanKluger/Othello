@@ -31,6 +31,7 @@ void computer_move(othelloBoard &board, int turn, vector<int> legal_moves_vec, d
     move = rand() % num;  
     }
   board.make_move(legal_moves_vec[move], turn, turn);
+  pieces = pieces + 1;
   return;
 }
 
@@ -42,5 +43,6 @@ void computer_move_random(othelloBoard &board, int turn, vector<int> legal_moves
   }
   int move = rand() % num;
   board.make_move(legal_moves_vec[move], turn, turn);
+  pieces = pieces + 1;
   return;
 }

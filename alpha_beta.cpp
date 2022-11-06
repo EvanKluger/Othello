@@ -27,6 +27,7 @@ tuple<int, int> max_value(int alpha, int beta, othelloBoard &board, int turn, in
     tuple<int, int> max_result;
     tuple<int, int> min_result;
     int move;
+    int num;
     int eval;
     int k_two;
     int other;
@@ -75,19 +76,41 @@ tuple<int, int> max_value(int alpha, int beta, othelloBoard &board, int turn, in
             if(eval > maxEval){
                 maxEval = eval;
                 move = k;
-
+                
                 if(alpha < eval){
                 alpha = eval;
-            } 
+                } 
                 
             }
-            
+            if(pieces < 10){
+                if(eval == maxEval){
+                    srand(time(NULL));
+                    
+                    if(rand()%2 == 1){
+                        move = k;
+                    
+                        if(alpha < eval){
+                        alpha = eval;
+                        } 
+                    }              
+                }
+            }
+            /*
+            if(eval == maxEval){
+                srand(time(NULL));
+                num = rand()%2;
+                if(num == 0){
+                    move = k;
+                }
+            }
+            */
             if(beta<=maxEval){
-                max_result = make_tuple(maxEval, move);
                 //depth = depth -1;
+                max_result = make_tuple(maxEval, move);
                 return max_result;
             }
         }
+        
         max_result = make_tuple(maxEval, move);
         //depth = depth -1;
         return max_result;
@@ -112,6 +135,7 @@ tuple<int, int> min_value(int alpha, int beta, othelloBoard &board, int turn, in
     int move;
     int minEval;
     int eval;
+    int num;
     othelloBoard temp_board(64);
     minEval = infinity;
     vector<int> min_legal_moves_vector;
@@ -162,7 +186,22 @@ tuple<int, int> min_value(int alpha, int beta, othelloBoard &board, int turn, in
                 } 
             } 
 
-            
+            if(pieces < 10){  
+                if(eval == minEval){
+                    srand(time(NULL));
+                    num = rand()%2;
+                    
+                    if(num == 0){
+                        move = k;
+                        
+                        if(beta > eval){
+                        beta = eval;
+                        }
+
+                    }
+                }
+            }
+
             if(alpha >= minEval){
                 min_result_one = make_tuple(minEval, move);
                 //depth = depth -1;

@@ -348,6 +348,7 @@ int othelloBoard::heuristic_eval(int turn){
     int pieces_on_board = 0;
     int amount_turn = 0;
     int amount_other = 0;
+    int neighbor_val;
     unordered_map<int, int> static_position_points;
 
     for(int k = 0; k<64; k++){
@@ -367,23 +368,23 @@ int othelloBoard::heuristic_eval(int turn){
 
     //Early GamePlay
     if(pieces_on_board<20){
-      static_position_points[11] = 100;
-      static_position_points[12] = -10;
+      static_position_points[11] = 150;
+      static_position_points[12] = -20;
       static_position_points[13] = 2;
       static_position_points[14] = 0;
       static_position_points[15] = 0;
       static_position_points[16]= 2;
-      static_position_points[17] = -10;
-      static_position_points[18] = 100;
+      static_position_points[17] = -20;
+      static_position_points[18] = 150;
 
-      static_position_points[21] = -10;
-      static_position_points[22] = -15;
+      static_position_points[21] = -20;
+      static_position_points[22] = -30;
       static_position_points[23] = -3;
       static_position_points[24] = -3;
       static_position_points[25] = -3;
       static_position_points[26] = -3;
-      static_position_points[27] = -15;
-      static_position_points[28] = -20;
+      static_position_points[27] = -30;
+      static_position_points[28] = 150;
 
       static_position_points[31] = -1;
       static_position_points[32] = -1;
@@ -421,44 +422,44 @@ int othelloBoard::heuristic_eval(int turn){
       static_position_points[67] = -1;
       static_position_points[68] = -1;
 
-      static_position_points[71] = -10;
-      static_position_points[72] = -15;
+      static_position_points[71] = -20;
+      static_position_points[72] = -30;
       static_position_points[73] = -3;
       static_position_points[74] = -3;
       static_position_points[75] = -3;
       static_position_points[76] = -3;
-      static_position_points[77] = -15;
-      static_position_points[78] = -10;
+      static_position_points[77] = -30;
+      static_position_points[78] = -20;
 
-      static_position_points[81] = 100;
-      static_position_points[82] = -10;
+      static_position_points[81] = 150;
+      static_position_points[82] = -20;
       static_position_points[83] = 2;
       static_position_points[84] = 0;
       static_position_points[85] = 0;
       static_position_points[86]= 2;
-      static_position_points[87] = -10;
-      static_position_points[88] = 100;
+      static_position_points[87] = -20;
+      static_position_points[88] = 150;
     }
 
     //Early-Mid GamePlay
     if(pieces_on_board>19 && pieces_on_board<30){
-      static_position_points[11] = 100;
-      static_position_points[12] = -10;
+      static_position_points[11] = 150;
+      static_position_points[12] = -20;
       static_position_points[13] = 4;
       static_position_points[14] = 2;
       static_position_points[15] = 2;
       static_position_points[16]= 4;
-      static_position_points[17] = -10;
+      static_position_points[17] = -20;
       static_position_points[18] = 100;
 
-      static_position_points[21] = -10;
-      static_position_points[22] = -15;
+      static_position_points[21] = -20;
+      static_position_points[22] = -30;
       static_position_points[23] = 0;
       static_position_points[24] = -1;
       static_position_points[25] = -1;
       static_position_points[26] = 0;
-      static_position_points[27] = -15;
-      static_position_points[28] = -10;
+      static_position_points[27] = -30;
+      static_position_points[28] = 150;
 
       static_position_points[31] = 4;
       static_position_points[32] = 0;
@@ -496,45 +497,45 @@ int othelloBoard::heuristic_eval(int turn){
       static_position_points[67] = 0;
       static_position_points[68] = 4;
 
-      static_position_points[71] = -10;
-      static_position_points[72] = -15;
+      static_position_points[71] = -20;
+      static_position_points[72] = -30;
       static_position_points[73] = 0;
       static_position_points[74] = 0;
       static_position_points[75] = 0;
       static_position_points[76] = 0;
-      static_position_points[77] = -15;
-      static_position_points[78] = -10;
+      static_position_points[77] = -30;
+      static_position_points[78] = -20;
 
-      static_position_points[81] = 100;
-      static_position_points[82] = -10;
+      static_position_points[81] = 150;
+      static_position_points[82] = -20;
       static_position_points[83] = 4;
       static_position_points[84] = 2;
       static_position_points[85] = 2;
       static_position_points[86]= 4;
-      static_position_points[87] = -10;
-      static_position_points[88] = 100;
+      static_position_points[87] = -20;
+      static_position_points[88] = 150;
     }
     
 
     //Mid GamePlay
     if(pieces_on_board>29 && pieces_on_board<40){
-      static_position_points[11] = 100;
-      static_position_points[12] = -10;
+      static_position_points[11] = 150;
+      static_position_points[12] = -20;
       static_position_points[13] = 4;
       static_position_points[14] = 2;
       static_position_points[15] = 2;
       static_position_points[16]= 4;
-      static_position_points[17] = -10;
-      static_position_points[18] = 100;
+      static_position_points[17] = -20;
+      static_position_points[18] = 150;
 
-      static_position_points[21] = -10;
-      static_position_points[22] = -15;
+      static_position_points[21] = -20;
+      static_position_points[22] = -30;
       static_position_points[23] = 0;
       static_position_points[24] = -1;
       static_position_points[25] = -1;
       static_position_points[26] = 0;
-      static_position_points[27] = -15;
-      static_position_points[28] = -10;
+      static_position_points[27] = -30;
+      static_position_points[28] = -15;
 
       static_position_points[31] = 4;
       static_position_points[32] = 0;
@@ -572,128 +573,53 @@ int othelloBoard::heuristic_eval(int turn){
       static_position_points[67] = 0;
       static_position_points[68] = 4;
 
-      static_position_points[71] = -10;
-      static_position_points[72] = -15;
+      static_position_points[71] = -20;
+      static_position_points[72] = -30;
       static_position_points[73] = 0;
       static_position_points[74] = 0;
       static_position_points[75] = 0;
       static_position_points[76] = 0;
-      static_position_points[77] = -15;
-      static_position_points[78] = -10;
+      static_position_points[77] = -30;
+      static_position_points[78] = -20;
 
-      static_position_points[81] = 100;
+      static_position_points[81] = 150;
       static_position_points[82] = -10;
       static_position_points[83] = 4;
       static_position_points[84] = 2;
       static_position_points[85] = 2;
       static_position_points[86]= 4;
       static_position_points[87] = -10;
-      static_position_points[88] = 100;
+      static_position_points[88] = 150;
     }
 
     //Mid-Late GamePlay
     if(pieces_on_board>39 && pieces_on_board<50){
-      static_position_points[11] = 100;
-      static_position_points[12] = -10;
-      static_position_points[13] = 8;
-      static_position_points[14] = 4;
-      static_position_points[15] = 4;
-      static_position_points[16] = 8;
-      static_position_points[17] = -10;
-      static_position_points[18] = 100;
-
-      static_position_points[21] = -10;
-      static_position_points[22] = -15;
-      static_position_points[23] = 0;
-      static_position_points[24] = -1;
-      static_position_points[25] = -1;
-      static_position_points[26] = 0;
-      static_position_points[27] = -15;
-      static_position_points[28] = -10;
-
-      static_position_points[31] = 8;
-      static_position_points[32] = 0;
-      static_position_points[33] = 3;
-      static_position_points[34] = 3;
-      static_position_points[35] = 3;
-      static_position_points[36] = 3;
-      static_position_points[37] = 0;
-      static_position_points[38] = 8;
-
-      static_position_points[41] = 4;
-      static_position_points[42] = 0;
-      static_position_points[43] = 3;
-      static_position_points[44] = 5;
-      static_position_points[45] = 5;
-      static_position_points[46] = 3;
-      static_position_points[47] = 0;
-      static_position_points[48] = 4;
-
-      static_position_points[51] = 4;
-      static_position_points[52] = 0;
-      static_position_points[53] = 3;
-      static_position_points[54] = 5;
-      static_position_points[55] = 5;
-      static_position_points[56] = 3;
-      static_position_points[57] = 0;
-      static_position_points[58] = 4;
-
-      static_position_points[61] = 8;
-      static_position_points[62] = 0;
-      static_position_points[63] = 3;
-      static_position_points[64] = 3;
-      static_position_points[65] = 3;
-      static_position_points[66] = 3;
-      static_position_points[67] = 0;
-      static_position_points[68] = 8;
-
-      static_position_points[71] = -10;
-      static_position_points[72] = -15;
-      static_position_points[73] = 0;
-      static_position_points[74] = 0;
-      static_position_points[75] = 0;
-      static_position_points[76] = 0;
-      static_position_points[77] = -15;
-      static_position_points[78] = -10;
-
-      static_position_points[81] = 100;
-      static_position_points[82] = -10;
-      static_position_points[83] = 8;
-      static_position_points[84] = 4;
-      static_position_points[85] = 4;
-      static_position_points[86]= 8;
-      static_position_points[87] = -10;
-      static_position_points[88] = 100;
-    }
-
-    //Mid-Late GamePlay
-    if(pieces_on_board>49){
-      static_position_points[11] = 100;
-      static_position_points[12] = -10;
-      static_position_points[13] = 12;
+      static_position_points[11] = 150;
+      static_position_points[12] = -20;
+      static_position_points[13] = 10;
       static_position_points[14] = 7;
       static_position_points[15] = 7;
-      static_position_points[16] = 7;
-      static_position_points[17] = -10;
-      static_position_points[18] = 100;
+      static_position_points[16] = 10;
+      static_position_points[17] = -20;
+      static_position_points[18] = 150;
 
-      static_position_points[21] = -10;
-      static_position_points[22] = -15;
+      static_position_points[21] = -20;
+      static_position_points[22] = -30;
       static_position_points[23] = 0;
       static_position_points[24] = -1;
       static_position_points[25] = -1;
       static_position_points[26] = 0;
-      static_position_points[27] = -15;
-      static_position_points[28] = -10;
+      static_position_points[27] = -30;
+      static_position_points[28] = -20;
 
-      static_position_points[31] = 12;
+      static_position_points[31] = 10;
       static_position_points[32] = 0;
       static_position_points[33] = 3;
       static_position_points[34] = 3;
       static_position_points[35] = 3;
       static_position_points[36] = 3;
       static_position_points[37] = 0;
-      static_position_points[38] = 12;
+      static_position_points[38] = 10;
 
       static_position_points[41] = 7;
       static_position_points[42] = 0;
@@ -713,42 +639,228 @@ int othelloBoard::heuristic_eval(int turn){
       static_position_points[57] = 0;
       static_position_points[58] = 7;
 
-      static_position_points[61] = 12;
+      static_position_points[61] = 10;
       static_position_points[62] = 0;
       static_position_points[63] = 3;
       static_position_points[64] = 3;
       static_position_points[65] = 3;
       static_position_points[66] = 3;
       static_position_points[67] = 0;
-      static_position_points[68] = 12;
+      static_position_points[68] = 10;
 
-      static_position_points[71] = -10;
-      static_position_points[72] = -15;
+      static_position_points[71] = -20;
+      static_position_points[72] = -30;
       static_position_points[73] = 0;
       static_position_points[74] = 0;
       static_position_points[75] = 0;
       static_position_points[76] = 0;
-      static_position_points[77] = -15;
-      static_position_points[78] = -10;
+      static_position_points[77] = -30;
+      static_position_points[78] = -20;
 
-      static_position_points[81] = 100;
-      static_position_points[82] = -10;
-      static_position_points[83] = 12;
+      static_position_points[81] = 150;
+      static_position_points[82] = -20;
+      static_position_points[83] = 10;
       static_position_points[84] = 7;
       static_position_points[85] = 7;
-      static_position_points[86]= 12;
-      static_position_points[87] = -10;
-      static_position_points[88] = 100;
+      static_position_points[86]= 10;
+      static_position_points[87] = -20;
+      static_position_points[88] = 150;
+    }
+
+    //Mid-Late GamePlay
+    if(pieces_on_board>49){
+      static_position_points[11] = 150;
+      static_position_points[12] = -20;
+      static_position_points[13] = 17;
+      static_position_points[14] = 10;
+      static_position_points[15] = 10;
+      static_position_points[16] = 17;
+      static_position_points[17] = -20;
+      static_position_points[18] = 150;
+
+      static_position_points[21] = -30;
+      static_position_points[22] = -30;
+      static_position_points[23] = 0;
+      static_position_points[24] = -1;
+      static_position_points[25] = -1;
+      static_position_points[26] = 0;
+      static_position_points[27] = -30;
+      static_position_points[28] = -20;
+
+      static_position_points[31] = 17;
+      static_position_points[32] = 0;
+      static_position_points[33] = 3;
+      static_position_points[34] = 3;
+      static_position_points[35] = 3;
+      static_position_points[36] = 3;
+      static_position_points[37] = 0;
+      static_position_points[38] = 17;
+
+      static_position_points[41] = 10;
+      static_position_points[42] = 0;
+      static_position_points[43] = 3;
+      static_position_points[44] = 5;
+      static_position_points[45] = 5;
+      static_position_points[46] = 3;
+      static_position_points[47] = 0;
+      static_position_points[48] = 10;
+
+      static_position_points[51] = 10;
+      static_position_points[52] = 0;
+      static_position_points[53] = 3;
+      static_position_points[54] = 5;
+      static_position_points[55] = 5;
+      static_position_points[56] = 3;
+      static_position_points[57] = 0;
+      static_position_points[58] = 10;
+
+      static_position_points[61] = 17;
+      static_position_points[62] = 0;
+      static_position_points[63] = 3;
+      static_position_points[64] = 3;
+      static_position_points[65] = 3;
+      static_position_points[66] = 3;
+      static_position_points[67] = 0;
+      static_position_points[68] = 17;
+
+      static_position_points[71] = -20;
+      static_position_points[72] = -30;
+      static_position_points[73] = 0;
+      static_position_points[74] = 0;
+      static_position_points[75] = 0;
+      static_position_points[76] = 0;
+      static_position_points[77] = -30;
+      static_position_points[78] = -20;
+
+      static_position_points[81] = 150;
+      static_position_points[82] = -20;
+      static_position_points[83] = 17;
+      static_position_points[84] = 10;
+      static_position_points[85] = 10;
+      static_position_points[86]= 17;
+      static_position_points[87] = -20;
+      static_position_points[88] = 150;
     }
 
     //Calculation of Score from Static-Position
+    
+    //Top-left corner already taken
+    if(data[0].value == turn){
+      static_position_points[21] = 0;
+      static_position_points[22] = 0;
+      static_position_points[12] = 0;
+    }
+
+    //Top-left corner already taken
+    if(data[7].value == turn){
+      static_position_points[17] = 0;
+      static_position_points[27] = 0;
+      static_position_points[28] = 0;
+    }
+
+    //Top-left corner already taken
+    if(data[63].value == turn){
+      static_position_points[87] = 0;
+      static_position_points[77] = 0;
+      static_position_points[78] = 0;
+    }
+
+    //Top-left corner already taken
+    if(data[56].value == turn){
+      static_position_points[82] = 0;
+      static_position_points[72] = 0;
+      static_position_points[71] = 0;
+    }
+
     if(pieces_on_board<30){
       for(int k = 0; k<64; k++){
           if(data[k].value == turn){
-            score = score + static_position_points[data[k].key]*250;
+            score = score + static_position_points[data[k].key]*400;
+
+            //Top Edge
+            if(data[k].key < 18 && data[k].key>11){
+              if(data[k-1].value == turn){
+                score = score + 50;
+              }
+              if(data[k+1].value == turn){
+                score = score + 50;
+              }
+            }
+            
+
+            //Bottom Edge
+            if(data[k].key < 88 && data[k].key>81){
+              if(data[k-1].value == turn){
+                score = score + 50;
+              }
+              if(data[k+1].value == turn){
+                score = score + 50;
+              }
+            }
+
+            //Left-Side Edge
+            if(data[k].key % 10 == 1 && k!= 0 && k != 56){
+              if(data[k-10].value == turn){
+                score = score + 50;
+              }
+              if(data[k+10].value == turn){
+                score = score + 50;
+              }
+            }
+
+            //Right-Side Edge
+            if(data[k].key % 10 == 8 && k!= 0 && k != 63){
+              if(data[k-10].value == turn){
+                score = score + 50;
+              }
+              if(data[k+10].value == turn){
+                score = score + 50;
+              }
+            }
           }
           if(data[k].value == other){
-            score = score - static_position_points[data[k].key]*250;
+            score = score - static_position_points[data[k].key]*400;
+
+            //Top Edge
+            if(data[k].key < 18 && data[k].key>11){
+              if(data[k-1].value == other){
+                score = score - 50;
+              }
+              if(data[k+1].value == other){
+                score = score - 50;
+              }
+            }
+            
+
+            //Bottom Edge
+            if(data[k].key < 88 && data[k].key>81){
+              if(data[k-1].value == other){
+                score = score - 50;
+              }
+              if(data[k+1].value == other){
+                score = score - 50;
+              }
+            }
+
+            //Left-Side Edge
+            if(data[k].key % 10 == 1 && k!= 0 && k != 56){
+              if(data[k-10].value == other){
+                score = score - 50;
+              }
+              if(data[k+10].value == other){
+                score = score - 50;
+              }
+            }
+
+            //Right-Side Edge
+            if(data[k].key % 10 == 8 && k!= 0 && k != 63){
+              if(data[k-10].value == other){
+                score = score - 50;
+              }
+              if(data[k+10].value == other){
+                score = score - 50;
+              }
+            }
           }
       }
     }
@@ -756,22 +868,189 @@ int othelloBoard::heuristic_eval(int turn){
       for(int k = 0; k<64; k++){
           if(data[k].value == turn){
             score = score + static_position_points[data[k].key]*500;
+
+            //Top Edge
+            if(data[k].key < 18 && data[k].key>11){
+              if(data[k-1].value == turn){
+                score = score + 50;
+              }
+              if(data[k+1].value == turn){
+                score = score + 50;
+              }
+            }
+            
+
+            //Bottom Edge
+            if(data[k].key < 88 && data[k].key>81){
+              if(data[k-1].value == turn){
+                score = score + 50;
+              }
+              if(data[k+1].value == turn){
+                score = score + 50;
+              }
+            }
+
+            //Left-Side Edge
+            if(data[k].key % 10 == 1 && k!= 0 && k != 56){
+              if(data[k-10].value == turn){
+                score = score + 50;
+              }
+              if(data[k+10].value == turn){
+                score = score + 50;
+              }
+            }
+
+            //Right-Side Edge
+            if(data[k].key % 10 == 8 && k!= 0 && k != 63){
+              if(data[k-10].value == turn){
+                score = score + 50;
+              }
+              if(data[k+10].value == turn){
+                score = score + 50;
+              }
+            }
           }
+
+
           if(data[k].value == other){
             score = score - static_position_points[data[k].key]*500;
-          }
+
+            //Top Edge
+            if(data[k].key < 18 && data[k].key>11){
+              if(data[k-1].value == other){
+                score = score - 50;
+              }
+              if(data[k+1].value == other){
+                score = score - 50;
+              }
+            }
+            
+
+            //Bottom Edge
+            if(data[k].key < 88 && data[k].key>81){
+              if(data[k-1].value == other){
+                score = score - 50;
+              }
+              if(data[k+1].value == other){
+                score = score - 50;
+              }
+            }
+
+            //Left-Side Edge
+            if(data[k].key % 10 == 1 && k!= 0 && k != 56){
+              if(data[k-10].value == other){
+                score = score - 50;
+              }
+              if(data[k+10].value == other){
+                score = score - 50;
+              }
+            }
+
+            //Right-Side Edge
+            if(data[k].key % 10 == 8 && k!= 0 && k != 63){
+              if(data[k-10].value == other){
+                score = score - 50;
+              }
+              if(data[k+10].value == other){
+                score = score - 50;
+              }
+            }
+            }
       }
     }
     if(pieces_on_board>49){
       for(int k = 0; k<64; k++){
           if(data[k].value == turn){
-            score = score + static_position_points[data[k].key]*1000;
+            score = score + static_position_points[data[k].key]*700;
+
+            //Top Edge
+            if(data[k].key < 18 && data[k].key>11){
+              if(data[k-1].value == turn){
+                score = score + 50;
+              }
+              if(data[k+1].value == turn){
+                score = score + 50;
+              }
+            }
+            
+
+            //Bottom Edge
+            if(data[k].key < 88 && data[k].key>81){
+              if(data[k-1].value == turn){
+                score = score + 50;
+              }
+              if(data[k+1].value == turn){
+                score = score + 50;
+              }
+            }
+
+            //Left-Side Edge
+            if(data[k].key % 10 == 1 && k!= 0 && k != 56){
+              if(data[k-10].value == turn){
+                score = score + 50;
+              }
+              if(data[k+10].value == turn){
+                score = score + 50;
+              }
+            }
+
+            //Right-Side Edge
+            if(data[k].key % 10 == 8 && k!= 0 && k != 63){
+              if(data[k-10].value == turn){
+                score = score + 50;
+              }
+              if(data[k+10].value == turn){
+                score = score + 50;
+              }
+            }
           }
           if(data[k].value == other){
-            score = score - static_position_points[data[k].key]*1000;
+            score = score - static_position_points[data[k].key]*700;
+
+            //Top Edge
+            if(data[k].key < 18 && data[k].key>11){
+              if(data[k-1].value == other){
+                score = score - 50;
+              }
+              if(data[k+1].value == other){
+                score = score - 50;
+              }
+            }
+            
+
+            //Bottom Edge
+            if(data[k].key < 88 && data[k].key>81){
+              if(data[k-1].value == other){
+                score = score - 50;
+              }
+              if(data[k+1].value == other){
+                score = score - 50;
+              }
+            }
+
+            //Left-Side Edge
+            if(data[k].key % 10 == 1 && k!= 0 && k != 56){
+              if(data[k-10].value == other){
+                score = score - 50;
+              }
+              if(data[k+10].value == other){
+                score = score - 50;
+              }
+            }
+
+            //Right-Side Edge
+            if(data[k].key % 10 == 8 && k!= 0 && k != 63){
+              if(data[k-10].value == other){
+                score = score - 50;
+              }
+              if(data[k+10].value == other){
+                score = score - 50;
+              }
+            }
           }
       }
     }
+    
     //-------------------------------------------------------------
     //Evaluation of Points Based on Amount of Legal Moves Available 
     //-------------------------------------------------------------
@@ -791,32 +1070,35 @@ int othelloBoard::heuristic_eval(int turn){
       score = score + (legal_moves(turn).size()*300) - (legal_moves(other).size()*300);
     }
 
+    
     //-------------------------------------------------------------
     //Evaluation of Points Based on Pieces on the Board
     //-------------------------------------------------------------
 
     if(pieces_on_board < 30){
-      score = score - (amount_turn*1250) + (amount_other*1250);
+      score = score - (amount_turn*1000) + (amount_other*1000);
     }
     
     if(pieces_on_board>29 && pieces_on_board<40){
-      score = score - (amount_turn*500) + (amount_other*500);
+      score = score - (amount_turn*100) + (amount_other*100);
     }
 
     if(pieces_on_board>39 && pieces_on_board<55){
-      score = score + (amount_turn*250) - (amount_other*250);
+      score = score + (amount_turn*100) - (amount_other*100);
     }
 
     if(pieces_on_board>54){
-      score = score + (amount_turn*10000) - (amount_other*10000);
+      score = score + (amount_turn*3000) - (amount_other*3000);
     }
 
-
+    
     //-------------------------------------------------------------
     //Evaluation of Complete Win and Complete Loss
     //-------------------------------------------------------------
     
     if(legal_moves(other).size() == 0 && legal_moves(turn).size() == 0) {
+      
+      score = score + (amount_turn*10000) - (amount_other*10000);
 
       if(amount_turn>amount_other){
         score = score + 1000000;
@@ -825,6 +1107,5 @@ int othelloBoard::heuristic_eval(int turn){
         score = score - 1000000;
       }
     }
-
     return score;
 }

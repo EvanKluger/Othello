@@ -4,10 +4,11 @@
 #include "othelloBoard.h"
 #include <stdio.h>
 #include <stdlib.h>
-//#include "game_loop.h"
-//#include "create_boards.h"
+#include "game_loop.h"
+//#include "create_boards.h
 #include "game_loop.cpp"
 #include "create_boards.cpp"
+//#include "game_gather_data.cpp"
 
 
 using namespace std;

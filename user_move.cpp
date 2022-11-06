@@ -32,5 +32,6 @@ void human_move(othelloBoard &board, int turn, vector<int> legal_moves_vec){
       cin >> move;
     }
     board.make_move(legal_moves_vec[move], turn, turn);
+    pieces = pieces + 1;
     return;
 }
